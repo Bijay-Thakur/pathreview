@@ -15,4 +15,4 @@ The `FaithfulnessChecker.check()` method in `rag/evaluator/faithfulness_checker.
 
 **Setup confirmation:** [ ] App runs locally at localhost:5173
 
-**Cohort ledger:** [ ] Issue added to cohort ledger
+**Cohort ledger:** [x] Issue added to cohort ledger
