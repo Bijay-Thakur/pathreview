@@ -29,3 +29,17 @@ checker.check("Has Python skills", [{"text": None}])
 ```
 
 Observed behavior: the code reaches the context join step and raises `TypeError: sequence item 0: expected str instance, NoneType found` because `None` is not normalized to `""` before joining.
+
+## Week 8 — Reproduction & solution planning
+
+**Reproduction commit link:** <https://github.com/Bijay-Thakur/pathreview/commit/e8b421c143ef52ad33433b45b3dd324e9fef8a69>
+
+**Reproduction summary:**
+Reproduced by calling `FaithfulnessChecker().check("Has Python skills", [{"text": None}])` directly, which raises `TypeError: sequence item 0: expected str instance, NoneType found` at the `" ".join(...)` step, since `chunk.get("text", "")` returns `None` (not the default) when the key exists but is explicitly `None`.
+
+**PLAN.md link:** <https://github.com/Bijay-Thakur/pathreview/blob/153-RAGfaithfulnessCHecker/PLAN.md>
+
+**Walkthrough video (recommended):** [add Loom link here]
+
+**Blockers or open questions:**
+[add any open questions here, or leave blank]
