@@ -16,3 +16,16 @@ The `FaithfulnessChecker.check()` method in `rag/evaluator/faithfulness_checker.
 **Setup confirmation:** [ ] App runs locally at localhost:5173
 
 **Cohort ledger:** [x] Issue added to cohort ledger
+
+## Local reproduction notes
+
+Reproduced locally by invoking the faithfulness checker with a context chunk whose text field is explicitly `None`:
+
+```python
+from rag.evaluator.faithfulness_checker import FaithfulnessChecker
+
+checker = FaithfulnessChecker()
+checker.check("Has Python skills", [{"text": None}])
+```
+
+Observed behavior: the code reaches the context join step and raises `TypeError: sequence item 0: expected str instance, NoneType found` because `None` is not normalized to `""` before joining.
