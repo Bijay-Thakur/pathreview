@@ -39,7 +39,7 @@ Reproduced by calling `FaithfulnessChecker().check("Has Python skills", [{"text"
 
 **PLAN.md link:** <https://github.com/Bijay-Thakur/pathreview/blob/153-RAGfaithfulnessCHecker/PLAN.md>
 
-**Walkthrough video (recommended):** [add Loom link here]
+**Walkthrough video (recommended):** <https://www.loom.com/share/4765631dfa014718a4bde88d5904fd3b>
 
 **Blockers or open questions:**
 [add any open questions here, or leave blank]
