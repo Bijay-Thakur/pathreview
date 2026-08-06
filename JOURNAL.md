@@ -41,5 +41,33 @@ Reproduced by calling `FaithfulnessChecker().check("Has Python skills", [{"text"
 
 **Walkthrough video (recommended):** <https://www.loom.com/share/4765631dfa014718a4bde88d5904fd3b>
 
-**Blockers or open questions:**
-[add any open questions here, or leave blank]
+## Week 9 — Solution building & PR submission
+
+### Check-in 1 (mid-week)
+
+**Current progress:**
+Implemented the fix in `rag/evaluator/faithfulness_checker.py`: the context-join step now uses `chunk.get("text") or ""` instead of `chunk.get("text", "")`, so an explicit `text: None` is normalized to an empty string instead of crashing the `" ".join(...)` call. The existing regression test `test_none_context_chunk_text` in `tests/unit/test_faithfulness_checker.py` now passes. Ran the full unit suite to confirm no regressions — the only other failures in that test file (partial/multi-chunk scoring tests) are pre-existing and unrelated to this bug, confirmed by checking them against the pre-fix baseline. All sub-tasks from PLAN.md are complete.
+
+**Next steps:**
+Finish self-review against `docs/CONTRIBUTING.md` conventions, open the PR, and fill out the PR template.
+
+**Blockers:**
+None. Local environment was missing dependencies (`structlog` and other project extras) needed to run the test suite; resolved by installing them.
+
+---
+
+### Check-in 2 (end of week)
+
+**PR link:** [link to your submitted pull request]
+
+**Branch:** [the branch name you worked on, e.g. `fix/123-short-description`]
+
+**What you built:**
+[1–3 sentences summarizing what your fix does and how it works]
+
+**Tests added or updated:**
+[Which test files did you touch? What do they cover?]
+
+**Self-review confirmation:** [ ] make check passes  [ ] make test-unit passes
+
+**Draft PR feedback received from:** [name or Slack handle, or "none"]
