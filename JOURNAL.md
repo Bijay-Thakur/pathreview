@@ -58,16 +58,16 @@ None. Local environment was missing dependencies (`structlog` and other project 
 
 ### Check-in 2 (end of week)
 
-**PR link:** [link to your submitted pull request]
+**PR link:** <https://github.com/ascherj/pathreview/pull/994>
 
-**Branch:** [the branch name you worked on, e.g. `fix/123-short-description`]
+**Branch:** `153-RAGfaithfulnessCHecker`
 
 **What you built:**
-[1–3 sentences summarizing what your fix does and how it works]
+Fixed a crash in `FaithfulnessChecker.check()` where a context chunk with an explicit `text: None` value raised a `TypeError`. Changed `chunk.get("text", "")` to `chunk.get("text") or ""` when concatenating context chunk text, since `.get()`'s default only applies when the key is missing, not when it's present but `None`.
 
 **Tests added or updated:**
-[Which test files did you touch? What do they cover?]
+`tests/unit/test_faithfulness_checker.py` — the regression test `test_none_context_chunk_text` already existed for this case and now passes; no new test was needed since it was already in place but failing before the fix.
 
-**Self-review confirmation:** [ ] make check passes  [ ] make test-unit passes
+**Self-review confirmation:** [x] make check passes (scoped to the touched file — repo-wide lint/format debt is pre-existing and unrelated)  [x] make test-unit passes (target test now passes; other pre-existing failures elsewhere in the suite are unrelated to this change)
 
-**Draft PR feedback received from:** [name or Slack handle, or "none"]
+**Draft PR feedback received from:** none yet
